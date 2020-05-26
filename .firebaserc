@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "proyectogra-54925": {
+      "hosting": {
+        "admin": [
+          "admin.cityqueenshop"
+        ]
+      }
+    }
+  }
+}
