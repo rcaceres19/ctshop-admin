@@ -1,6 +1,20 @@
-.log-button{
-    width: 6rem;
+.navbar {
+    background-color: #232f3e !important;
+    i {
+        margin-right: 7px;
+    }
+    .navbar-item {
+        &:focus,
+        &.is-active{
+            background-color:#232f3e;
+            color:#232f3e;
+        }
+    }
+    .navbar-item:hover {
+        background-color: #18212b !important;
+    }    
 }
+
 .logo-png {
     width: 6rem;
     max-height: 2rem !important;

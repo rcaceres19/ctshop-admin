@@ -61,11 +61,13 @@ class Bar extends Component{
                             :
                                 <div id="navbarBasicExample" className={`navbar-menu ${isVisible ? "is-active" : "hidden"}`}>
                                     <div className="navbar-end">
-                                        <Link className="navbar-item is-primary" to="/login">
-                                            <button className="button is-primary log-button">Login</button>
+                                        <Link className="navbar-item" to="/login">
+                                            <i className="fa fa-sign-in has-text-white"></i>
+                                            <a className="has-text-white">Iniciar Sesion</a>
                                         </Link>
                                         <Link className="navbar-item" to="/register">
-                                            <button className="button is-primary log-button">Register</button>
+                                            <i className="fa fa-wpforms has-text-white"></i>  
+                                            <a className="has-text-white">Registrate</a>
                                         </Link>
                                     </div>
                                 </div>

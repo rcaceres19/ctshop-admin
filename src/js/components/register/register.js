@@ -18,6 +18,7 @@ class Subscribe extends Component {
                 faddress: "",
                 saddress: "",
                 tel: "",
+                description: "",
                 type: 'company',
                 images: ''
         }
@@ -87,7 +88,7 @@ class Subscribe extends Component {
 
     addToDatabase() {
         const users = firebase.auth().currentUser.uid;
-        const {company, rtn, email, faddress, saddress, tel, type, images} = this.state
+        const {company, rtn, email, faddress, saddress, tel, type, images, description} = this.state
         
         firebase.database().ref('companies/' + users).set({
             company: company,
@@ -96,6 +97,7 @@ class Subscribe extends Component {
             faddress: faddress,
             saddress: saddress,
             tel: tel,
+            description: description,
             images: images
         });
 
@@ -109,98 +111,112 @@ class Subscribe extends Component {
     render() {
         return(
             <div className="container">
-                <article className="panel is-primary">
-                    <p className="panel-heading">
-                        Suscribete como vendedor en City Queen Shop
-                    </p>
-                    <div className="content">
-                        <div className="field">
-                            <label className="label">Empresa<small>*</small></label>
-                            <div className="control has-icons-left">
-                                <input type="text" name="company" className="input" onChange={this.handleChange} required />
-                                <span className="icon is-small is-left">
-                                    <i className="fa fa-user"></i>
-                                </span>
+                <div className="columns is-centered">
+                    <div className="column is-half is-offset-one-quarter">
+                    <hr/>
+                        <p className="subtitle is-6 has-text-centered">Ingresa la informacion de tu empresa</p>
+                    <hr/>
+                        <div className="box">
+                            <p className="is-size-1  has-text-centered">
+                                <i className="fa fa-wpforms"></i>
+                            </p>
+                            <p className="title is-3 has-text-centered">Reg&iacute;strate</p>
+                            <div className="field">
+                                <label className="label">Empresa<small>*</small></label>
+                                <div className="control has-icons-left">
+                                    <input type="text" name="company" className="input" onChange={this.handleChange} required />
+                                    <span className="icon is-small is-left">
+                                        <i className="fa fa-user"></i>
+                                    </span>
+                                </div>
                             </div>
-                        </div>
-                        <div className="field">
-                            <label className="label">RTN<small>*</small></label>
-                            <div className="control has-icons-left">
-                                <input type="text" name="rtn" className="input" onChange={this.handleChange} required />
-                                <span className="icon is-small is-left">
-                                    <i className="fa fa-id-card "></i>
-                                </span>
+                            <div className="field">
+                                <label className="label">RTN<small>*</small></label>
+                                <div className="control has-icons-left">
+                                    <input type="text" name="rtn" className="input" onChange={this.handleChange} required />
+                                    <span className="icon is-small is-left">
+                                        <i className="fa fa-id-card "></i>
+                                    </span>
+                                </div>
+                                
                             </div>
-                            
-                        </div>
-                        <div className="field">
-                            <label className="label">Email<small>*</small></label>
-                            <div className="control has-icons-left">
-                                <input type="text" name="email" className="input" onChange={this.handleChange}  required />
-                                <span className="icon is-small is-left">
-                                    <i className="fa fa-envelope"></i>
-                                </span>
+                            <div className="field">
+                                <label className="label">Email<small>*</small></label>
+                                <div className="control has-icons-left">
+                                    <input type="text" name="email" className="input" onChange={this.handleChange}  required />
+                                    <span className="icon is-small is-left">
+                                        <i className="fa fa-envelope"></i>
+                                    </span>
+                                </div>
                             </div>
-                        </div>
-                        <div className="field">
-                            <label className="label">Password<small>*</small></label>
-                            <div className="control has-icons-left">
-                                <input type="password" name="password" className="input" onChange={this.handleChange} required />
-                                <span className="icon is-small is-left">
-                                    <i className="fa fa-key"></i>
-                                </span>
-                                <small>NOTA*: Ingrese al menos 6 caracteres</small>
+                            <div className="field">
+                                <label className="label">Password<small>*</small></label>
+                                <div className="control has-icons-left">
+                                    <input type="password" name="password" className="input" onChange={this.handleChange} required />
+                                    <span className="icon is-small is-left">
+                                        <i className="fa fa-key"></i>
+                                    </span>
+                                    <small>NOTA*: Ingrese al menos 6 caracteres</small>
+                                </div>
                             </div>
-                        </div>
-                        <div className="field">
-                            <label className="label">Telefono<small>*</small></label>
-                            <div className="control has-icons-left">
-                                <input type="text" name="tel" className="input" onChange={this.handleChange} required />
-                                <span className="icon is-small is-left">
-                                    <i className="fa fa-phone "></i>
-                                </span>
+                        
+                        
+                            <div className="field">
+                                <label className="label">Telefono<small>*</small></label>
+                                <div className="control has-icons-left">
+                                    <input type="text" name="tel" className="input" onChange={this.handleChange} required />
+                                    <span className="icon is-small is-left">
+                                        <i className="fa fa-phone "></i>
+                                    </span>
+                                </div>
                             </div>
-                        </div>
-                        <div className="field">
-                            <label className="label">Direccion #1</label>
-                            <div className="control has-icons-left">
-                                <input type="text" name="faddress" className="input" onChange={this.handleChange} />
-                                <span className="icon is-small is-left">
-                                    <i className="fa fa-home "></i>
-                                </span>
+                            <div className="field">
+                                <label className="label">Direccion #1</label>
+                                <div className="control has-icons-left">
+                                    <input type="text" name="faddress" className="input" onChange={this.handleChange} />
+                                    <span className="icon is-small is-left">
+                                        <i className="fa fa-home "></i>
+                                    </span>
+                                </div>
                             </div>
-                        </div>
-                        <div className="field">
-                            <label className="label">Direccion #2</label>
-                            <div className="control has-icons-left">
-                                <input type="text" name="saddress" className="input" onChange={this.handleChange} />
-                                <span className="icon is-small is-left">
-                                    <i className="fa fa-home "></i>
-                                </span>
+                            <div className="field">
+                                <label className="label">Direccion #2</label>
+                                <div className="control has-icons-left">
+                                    <input type="text" name="saddress" className="input" onChange={this.handleChange} />
+                                    <span className="icon is-small is-left">
+                                        <i className="fa fa-home "></i>
+                                    </span>
+                                </div>
                             </div>
-                        </div>
-                        <div className="level">
-                            <div className="level-item">
-                                <div className="field">
-                                    <div className="file is-primary">
-                                        <label className="file-label">
-                                        <input className="file-input" name="imagenes" type="file" onChange={this.uploadImage} required />
-                                            <span className="file-cta">
-                                                <span className="file-icon">
-                                                <i className="fa fa-upload"></i>
+                            <div class="field">
+                                <label className="label">Descripcion de la empresa*</label>
+                                <div class="control has-icons-lef">
+                                    <textarea class="textarea is-primary" name="description" onChange={this.handleChange} placeholder="Primary textarea"></textarea>
+                                </div>
+                            </div>
+                            <div className="level">
+                                <div className="level-item">
+                                    <div className="field">
+                                        <div className="file is-success">
+                                            <label className="file-label">
+                                            <input className="file-input" name="imagenes" type="file" onChange={this.uploadImage} required />
+                                                <span className="file-cta">
+                                                    <span className="file-icon">
+                                                    <i className="fa fa-upload"></i>
+                                                    </span>
+                                                    <span className="file-label">
+                                                        Elija archivos *
+                                                    </span>
                                                 </span>
-                                                <span className="file-label">
-                                                    Elija archivos *
-                                                </span>
-                                            </span>
-                                        </label>
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            <button className="button is-success is-fullwidth" onClick={this.handleSubmit} value="Submit">Submit</button> 
                         </div>
-                        <button className="button is-primary" onClick={this.handleSubmit} value="Submit">Submit</button>
                     </div>
-                </article>
+                </div>
             </div>
         )
     }

@@ -65,36 +65,43 @@ class Login extends Component {
 
     render() {
         return(
-            <div className="container">
-                <article className="panel is-primary login-form">
-                    <p className="panel-heading">
-                        Login
-                    </p>
-                    <div  className="content">
-                        <div className="field">   
-                            <label className="label">Email</label>
-                            <div className="control has-icons-left">
-                                <input type="text" className="input" placeholder="Example@example.com" onChange={ this.emailHandler } />
-                                <span className="icon is-left">
-                                    <i className="fa fa-envelope"></i>
-                                </span>
-                            </div>                       
+            <div className="container ">
+                <div className="columns is-centered ">    
+                    <div  className="column is-half login-form is-offset-one-quarter">
+                        <hr/>
+                        <p className="subtitle is-6 has-text-centered">Ingresa tus credenciales</p>
+                        <hr/>
+                        <div className="box">
+                            <p className="is-size-1  has-text-centered">
+                                <i className="fa fa-user title"></i>
+                            </p>
+                            <p className="title is-3 has-text-centered">Inicia Sesion</p>
+                            <div className="field">   
+                                <label className="label">Email</label>
+                                <div className="control has-icons-left">
+                                    <input type="text" className="input" placeholder="Example@example.com" onChange={ this.emailHandler } />
+                                    <span className="icon is-left">
+                                        <i className="fa fa-envelope"></i>
+                                    </span>
+                                </div>                       
+                            </div>
+                            <div className="field">   
+                                <label className="label">Password</label>
+                                <div className="control has-icons-left">
+                                    <input type="password" className="input" placeholder="Password" onChange={ this.passHandler } />
+                                    <span className="icon is-left">
+                                        <i className="fa fa-lock "></i>
+                                    </span>
+                                </div>                        
+                            </div>
+                            
+                            <div className="control has-text-centered">
+                                <br />
+                                <button className="button is-success signin-btn" onClick={this.handleSubmit} value="Submit">Iniciar Sesion</button>
+                            </div>
                         </div>
-                        <div className="field">   
-                            <label className="label">Password</label>
-                            <div className="control has-icons-left">
-                                <input type="password" className="input" placeholder="Password" onChange={ this.passHandler } />
-                                <span className="icon is-left">
-                                    <i className="fa fa-lock "></i>
-                                </span>
-                            </div>                        
-                        </div>
-                        
-                        <div className="control">
-                            <button className="button is-primary" onClick={this.handleSubmit} value="Submit">Submit</button>
-                        </div>
-                    </div>
-                </article>     
+                    </div> 
+                </div>
             </div>
         )
     }
