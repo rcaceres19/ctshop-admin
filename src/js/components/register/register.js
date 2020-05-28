@@ -19,6 +19,7 @@ class Subscribe extends Component {
                 saddress: "",
                 tel: "",
                 description: "",
+                subscribed: false,
                 type: 'company',
                 images: ''
         }
@@ -88,7 +89,7 @@ class Subscribe extends Component {
 
     addToDatabase() {
         const users = firebase.auth().currentUser.uid;
-        const {company, rtn, email, faddress, saddress, tel, type, images, description} = this.state
+        const {company, rtn, email, faddress, saddress, tel, type, images, subscribed, description} = this.state
         
         firebase.database().ref('companies/' + users).set({
             company: company,
@@ -97,6 +98,7 @@ class Subscribe extends Component {
             faddress: faddress,
             saddress: saddress,
             tel: tel,
+            subscribed: false,
             description: description,
             images: images
         });
@@ -112,7 +114,7 @@ class Subscribe extends Component {
         return(
             <div className="container">
                 <div className="columns is-centered">
-                    <div className="column is-half is-offset-one-quarter">
+                    <div className="column is-half ">
                     <hr/>
                         <p className="subtitle is-6 has-text-centered">Ingresa la informacion de tu empresa</p>
                     <hr/>
@@ -133,7 +135,7 @@ class Subscribe extends Component {
                             <div className="field">
                                 <label className="label">RTN<small>*</small></label>
                                 <div className="control has-icons-left">
-                                    <input type="text" name="rtn" className="input" onChange={this.handleChange} required />
+                                    <input type="number" maxLength="14" name="rtn" className="input" onChange={this.handleChange} required />
                                     <span className="icon is-small is-left">
                                         <i className="fa fa-id-card "></i>
                                     </span>
@@ -164,7 +166,7 @@ class Subscribe extends Component {
                             <div className="field">
                                 <label className="label">Telefono<small>*</small></label>
                                 <div className="control has-icons-left">
-                                    <input type="text" name="tel" className="input" onChange={this.handleChange} required />
+                                    <input type="number" maxLength="8" name="tel" className="input" onChange={this.handleChange} required />
                                     <span className="icon is-small is-left">
                                         <i className="fa fa-phone "></i>
                                     </span>

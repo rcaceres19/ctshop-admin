@@ -4,10 +4,11 @@
         margin-right: 7px;
     }
     .navbar-item {
+        color: white;
         &:focus,
         &.is-active{
             background-color:#232f3e;
-            color:#232f3e;
+            color:white;
         }
     }
     .navbar-item:hover {

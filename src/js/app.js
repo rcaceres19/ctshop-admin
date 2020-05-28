@@ -26,7 +26,7 @@ class App extends Component {
 
     render() {
         return(
-            <Bar authenticated={this.state.authenticated} />
+              <Bar authenticated={this.state.authenticated} />
         )
     }
 }

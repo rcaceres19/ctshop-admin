@@ -18,7 +18,9 @@ class Products extends Component {
     componentDidMount() {
         const userId = firebase.auth().currentUser.uid;
         firebase.database().ref('products/' + userId).once('value', (snapshot) => {
-            this.setState({ products: [snapshot.val()] })
+            if(snapshot.exists()) {
+                this.setState({ products: [snapshot.val()] })
+            }
         })
     }
 

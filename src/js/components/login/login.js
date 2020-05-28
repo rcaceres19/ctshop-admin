@@ -67,7 +67,7 @@ class Login extends Component {
         return(
             <div className="container ">
                 <div className="columns is-centered ">    
-                    <div  className="column is-half login-form is-offset-one-quarter">
+                    <div  className="column is-half login-form">
                         <hr/>
                         <p className="subtitle is-6 has-text-centered">Ingresa tus credenciales</p>
                         <hr/>
