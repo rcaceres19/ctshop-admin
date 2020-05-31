@@ -19,7 +19,10 @@ class Subscribe extends Component {
                 saddress: "",
                 tel: "",
                 description: "",
-                subscribed: false,
+                subscribed: {
+                    status: false,
+                    type: '',
+                },
                 type: 'company',
                 images: ''
         }

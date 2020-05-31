@@ -6,13 +6,16 @@ import {
     Route,
     Link
 } from "react-router-dom";
+import { browserHistory } from 'react-router'
 import Home from '../../components/home/home';
 import Login from '../../components/login/login';
 import Register from '../../components/register/register';
 import Logout from '../../components/logout/logout';
-import addProduct from '../../components/addProduct/addProduct'
+import Subscribe from '../../components/subscribe/subscribe';
+import addProduct from '../../components/addProduct/addProduct';
+import Confirmation from '../../components/confirmation/confirmation';
 import ProtectedRoutes from '../../helpers/protectedRoutes';
-import '../../../css/components/bar/bar.scss'
+import '../../../css/components/bar/bar.scss';
 import logo from '../../../assets/images/logo.png';
 import Products from '../../components/products/products';
 
@@ -47,10 +50,10 @@ class Bar extends Component{
 
     render() {
         const {isVisible, subscribed} = this.state;
-        console.log(isVisible)
+        console.log(subscribed)
         return(
             <div>
-                <Router>                
+                <Router history={browserHistory}>                
                     <nav className="navbar" role="navigation" aria-label="main navigation">
                     
                     <div className="navbar-brand">
@@ -68,14 +71,14 @@ class Bar extends Component{
                             { this.props.authenticated ?                    
                                 <div id="navbarBasicExample" className={`navbar-menu ${isVisible ? "is-active" : "hidden"}`}>
                                     <div className="navbar-start">
-                                        <Link className="navbar-item" to="/home">Inicio</Link>
+                                        <Link className="navbar-item is-inline-block" to="/home">Inicio</Link>
                                         {
-                                            subscribed == false ? 
-                                            <Link className="navbar-item" to="/products">Subscribete</Link>
+                                            subscribed.status == false ? 
+                                            <Link className="navbar-item" to="/subscribe">Subscribete</Link>
                                             :
                                             <div>
-                                                <Link className="navbar-item" to="/products">Productos</Link>
-                                                <Link className="navbar-item" to="/addProduct">Agregar Productos</Link>
+                                                <Link className="navbar-item is-inline-block" to="/products">Productos</Link>
+                                                <Link className="navbar-item is-inline-block" to="/addProduct">Agregar Productos</Link>
                                             </div>
                                         }
                                     </div>
@@ -103,11 +106,11 @@ class Bar extends Component{
                     <Switch>
                         <Route authenticated={this.props.authenticated} path="/login" component={Login} />    
                         <Route authenticated={this.props.authenticated} path="/home" component={Home} />
+                        <Route authenticated={this.props.authenticated} path="/subscribe" component={Subscribe} />
+                        <ProtectedRoutes component={Confirmation} path="/confirmation" authenticated={this.props.authenticated} />
                         <Route path="/register" component={Register} />
                         <ProtectedRoutes component={addProduct} path="/addProduct" authenticated={this.props.authenticated} />
                         <ProtectedRoutes component={Products} path="/products" authenticated={this.props.authenticated} />
-                        {/* <ProtectedRoutes component={Companies} path="/companies" authenticated={this.props.authenticated} />
-                        <ProtectedRoutes component={Products} path="/companies" authenticated={this.props.authenticated} /> */}
                     </Switch>
                 </Router>
             </div>
