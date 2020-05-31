@@ -8,10 +8,10 @@ const Home = () => {
                 <div className="column">
                     <div className="columns">
                         <div className="column is-half has-text-centered">
-                            hola
+                           
                         </div>
                         <div className="column is-half has-text-centered">
-                            hola
+                           
                         </div>
                     </div>  
                 </div>
