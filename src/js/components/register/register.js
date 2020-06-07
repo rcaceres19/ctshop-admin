@@ -101,7 +101,7 @@ class Subscribe extends Component {
             faddress: faddress,
             saddress: saddress,
             tel: tel,
-            subscribed: false,
+            subscribed: subscribed,
             description: description,
             images: images
         });

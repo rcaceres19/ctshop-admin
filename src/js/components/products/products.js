@@ -29,7 +29,6 @@ class Products extends Component {
         console.log(products)
         let result = products.map((items) => {
             let dataArray = Object.values(items).map((item, index) => {
-
                 return (
                     <ProductHolder id={item.id} 
                     name={item.name} 

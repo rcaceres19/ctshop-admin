@@ -24,7 +24,7 @@ class Subscribe extends Component {
                 label: 'subscribe',
                 
             },
-            createSubscription: function(data, actions) {
+            createSubscription: (data, actions) => {
                 return actions.subscription.create({
                     'plan_id': 'P-6TS119066H727125LL3JRIWY',
                     "payee": {
@@ -32,8 +32,11 @@ class Subscribe extends Component {
                     },
                 });
             },
-            onApprove: function(data, actions) {
-                alert(data.subscriptionID);
+            onApprove: (data, actions) =>{
+                this.props.history.push({
+                    pathname: '/confirmation',
+                    state: {data, type: 'mensual', startDate: new Date()}
+                })
             }
         }).render('#paypal-button-container-mensual');
 
@@ -57,7 +60,7 @@ class Subscribe extends Component {
             onApprove: (data, actions) => {
                 this.props.history.push({
                     pathname: '/confirmation',
-                    state: {data, type: 'mensual', startDate: new Date()}
+                    state: {data, type: 'anual', startDate: new Date()}
                 })
             }
         }).render('#paypal-button-container-anual');

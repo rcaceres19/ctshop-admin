@@ -53,7 +53,7 @@ class Bar extends Component{
         console.log(subscribed)
         return(
             <div>
-                <Router history={browserHistory}>                
+                <Router history={browserHistory} >                
                     <nav className="navbar" role="navigation" aria-label="main navigation">
                     
                     <div className="navbar-brand">
