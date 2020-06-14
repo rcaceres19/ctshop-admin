@@ -1,9 +1,9 @@
 import React from "react";
 
 const ProductHolder = (props) => {
-
+    
     return(
-        
+            
             <div className="item-holder">
                 <div className="item">
                     <div className="item-pic">
@@ -14,7 +14,7 @@ const ProductHolder = (props) => {
                             <p><b>Nombre de producto:</b> {props.name}</p>
                             <p><b>Precio: </b>{props.price} L.</p>
                             <p><b>Descripcion: </b>{props.description}</p>
-                            <p><b>Cantidad disponible: </b>{props.stock}</p>
+                            {/* <p><b>Cantidad disponible: </b>{props.stock}</p> */}
                             <p><b>Promocion: </b>{props.featured}</p>
                         </div>
                     </div>

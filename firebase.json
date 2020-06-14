@@ -1,7 +1,7 @@
 {
-  "hosting": {
+  "hosting": [{
     "target": "admin",
-    "public": "./dist",
+    "public": "dist",
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -12,6 +12,6 @@
         "source": "**",
         "destination": "/index.html"
       }
-    ]  
-  }
+    ]
+  }]
 }

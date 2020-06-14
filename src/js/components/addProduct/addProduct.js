@@ -39,12 +39,15 @@ class AddProduct extends Component{
             offerflg: false,
             tallaflg: false,
             promocionflg: false,
-            errorflg: false
+            errorflg: false,
+            tallaArray: []
         }
         this.handleChange = this.handleChange.bind(this);
         this.agregarProducto = this.agregarProducto.bind(this);
         this.uploadImage = this.uploadImage.bind(this);
         this.checkProduct = this.checkProduct.bind(this);
+        this.addtalla = this.addtalla.bind(this);
+        this.deleteTalla = this.deleteTalla.bind(this);
     }
 
     handleChange(e) {
@@ -62,7 +65,7 @@ class AddProduct extends Component{
                 endDate.setMonth(endDate.getMonth() + 1);
                 product.descuento.startDate = date.toLocaleDateString("en-US");
                 product.descuento.endDate = endDate.toLocaleDateString("en-US");
-                console.log(endDate)
+                
             } 
 
             if(value == "false") {
@@ -112,9 +115,7 @@ class AddProduct extends Component{
         if(name == 'promo' && product.promocion.status == true) {
             product.promocion.promo = value;
         }
-
         this.setState({product:product})
-        
     }
 
     uploadImage(e) {
@@ -134,10 +135,45 @@ class AddProduct extends Component{
         })
     }
 
+    addtalla(e) {
+        let {product, tallaArray} = this.state;
+
+            if(product.talla == '') {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Seleccione una talla',
+                })
+            } else {
+                tallaArray.push({
+                    cantidad: parseInt(product.stock),
+                    talla: product.talla
+                })
+            }
+        
+        
+        product.stock = 1
+        
+        this.setState({ product })
+        this.setState({ tallaArray })
+        
+    }
+
+    deleteTalla(e) {
+        const {tallaArray} = this.state
+        
+        const newArray = tallaArray.filter(item => item  !== e)
+        
+        this.setState({tallaArray:newArray})
+        
+    }
+
     checkProduct(e) {
         let {product, products} = this.state;
         let error = false;
         let errorPro = false;
+
+        console.log(typeof(product.price));
 
         if(product.promocion.status == true && product.promocion.promo == '2x1' && product.stock <= 1) {
             console.log('entro a 2')
@@ -210,11 +246,15 @@ class AddProduct extends Component{
     agregarProducto(e) {
         
         const user = firebase.auth().currentUser.uid;
-        let {product, products} = this.state;
+        let {product, products, tallaArray} = this.state;
 
+        product.stock = parseInt(product.stock);
+        product.price = parseInt(product.price);
+        product.stock = tallaArray
         product.id = Uniqid();
         this.setState({product});
 
+        console.log(product)
         if(product.outStock == false) { 
             products.push(product);
             firebase.database().ref('products/' + user).push(
@@ -238,7 +278,7 @@ class AddProduct extends Component{
 
         return (
             <div className="container">
-                <div className="box has-text-centered">
+                <div className="box">
                     <div className="carrousel">
                         <SimpleSlider images={product.images}  />
                     </div>
@@ -297,7 +337,7 @@ class AddProduct extends Component{
                                     <div className="field">
                                         <label className="label">Cantidad de producto disponible</label>
                                         <div className="control">
-                                            <input type="number" className="input" name="stock" required placeholder="Producto Disponible" onChange={ this.handleChange  } />
+                                            <input type="number" className="input" name="stock" value={product.stock} required placeholder="Producto Disponible" onChange={ this.handleChange  } />
                                         </div>            
                                     </div>
                                 </div>
@@ -349,22 +389,73 @@ class AddProduct extends Component{
                                             ""
                                     }
                                     {
-                                        tallaflg ? 
+                                        tallaflg && product.cat == 'ropa' || product.cat == 'deporte' ? 
                                         <div>
-                                            <div className="field">
+                                            <div>
                                                 <label className="label">Tallas</label>
-                                                <div className="control">
-                                                    <div className="select" >
-                                                        <select name="talla" onChange={this.handleChange}>
-                                                            <option hidden={true}>Talla</option>
-                                                            <option value={'S'}>S</option>
-                                                            <option value={'M'}>M</option>
-                                                            <option value={'L'}>L</option>
-                                                            <option value={'XL'}>XL</option>
-                                                            <option value={'XXL'}>XXL</option>
-                                                        </select>   
-                                                    </div>
-                                                </div>            
+                                            </div>    
+                                            <div className="level">
+                                                <div className="field my-1">
+                                                    <div className="control">
+                                                        <div className="select" >
+                                                            <select name="talla" onChange={this.handleChange}>
+                                                                <option hidden={true}>Talla</option>
+                                                                <option value={'S'}>S</option>
+                                                                <option value={'M'}>M</option>
+                                                                <option value={'L'}>L</option>
+                                                                <option value={'XL'}>XL</option>
+                                                                <option value={'XXL'}>XXL</option>
+                                                            </select>   
+                                                        </div>
+                                                    </div>            
+                                                </div>
+                                                <div className="field">
+                                                    <button className="button is-info" onClick={this.addtalla}>Agregar Talla</button>
+                                                </div>   
+                                            </div>
+                                        </div>
+                                        :
+                                        ""
+                                    }
+                                    {
+                                        tallaflg && product.cat == 'calzado' ? 
+                                        <div>
+                                            <label className="label">Tallas</label>
+                                            <div className="level">
+                                                <div className="field my-1">
+                                                    <div className="control">
+                                                        <div className="select" >
+                                                            <select name="talla" onChange={this.handleChange}>
+                                                                <option hidden={true}>Talla</option>
+                                                                <option value={6}>6</option>
+                                                                <option value={6.5}>6.5</option>
+                                                                <option value={7}>7</option>
+                                                                <option value={7.5}>7.5</option>
+                                                                <option value={8.5}>8.5</option>
+                                                                <option value={9}>9</option>
+                                                                <option value={9.5}>9.5</option>
+                                                                <option value={10}>10</option>
+                                                                <option value={10.5}>10.5</option>
+                                                                <option value={11}>11</option>
+                                                                <option value={11.5}>11.5</option>
+                                                                <option value={12}>12</option>
+                                                                <option value={12.5}>12.5</option>
+                                                                <option value={13}>13</option>
+                                                                <option value={13.5}>13.5</option>
+                                                                <option value={14}>14</option>
+                                                                <option value={14.5}>14.5</option>
+                                                                <option value={15}>15</option>
+                                                                <option value={15.5}>15.5</option>
+                                                                <option value={16}>16</option>
+                                                                <option value={16.5}>16.5</option>
+                                                                <option value={17}>17</option>
+                                                            </select>   
+                                                        </div>
+                                                    </div>         
+                                                </div>
+                                                <div className="field">
+                                                    <button className="button is-info" onClick={this.addtalla}>Agregar Talla</button>
+                                                </div>   
                                             </div>
                                         </div>
                                         :
@@ -403,6 +494,20 @@ class AddProduct extends Component{
                                     </div>
                                     :
                                     ""
+                                }
+                            </div>
+                            <hr />
+                            <label><b>Resumen de tallas</b></label>
+                            <div>
+                                {
+                                    this.state.tallaArray.map((item) => (
+                                    
+                                        <div>
+                                            <label>Cantidad: <b>{item.cantidad}</b></label>
+                                            <label>Talla: <b>{item.talla}</b></label>
+                                            <a className="delete" onClick={ () => this.deleteTalla(item) } />
+                                        </div>
+                                    ))
                                 }
                             </div>
                         </div>

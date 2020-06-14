@@ -1,9 +1,12 @@
 {
+  "projects": {
+    "default": "proyectogra-54925"
+  },
   "targets": {
     "proyectogra-54925": {
       "hosting": {
         "admin": [
-          "admin.cityqueenshop"
+          "admin-catrachosshop"
         ]
       }
     }
