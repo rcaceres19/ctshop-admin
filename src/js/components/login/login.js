@@ -51,7 +51,7 @@ class Login extends Component {
             Object.values(item).map((items) => {
                 if(items.email == email && items.type == "company") {
                     firebase.auth().signInWithEmailAndPassword(email, password).then((user) => {
-                        this.props.history.push('/home');
+                        this.props.history.push('/');
                     }).catch((error) => {
                         const errorCode = error.code;
                         const errorMessage = error.message;

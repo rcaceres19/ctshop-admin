@@ -4,6 +4,7 @@ import ProductHolder from '../productHolder/productHolder'
 import '../../../css/components/productHolder/productHolder.scss';
 
 
+
 class Products extends Component {
     constructor(props) {
         super(props);
@@ -44,11 +45,6 @@ class Products extends Component {
                                 </div>
                             </div>
                             <div className="item-actions">
-                                <button className="item-button button is-info">
-                                    <span className="icon is-small">
-                                        <i className="fa fa-edit" />
-                                    </span>
-                                </button>
                                 <button className="item-button button is-danger" onClick={() => this.handleDelete(item)}>
                                     <span className="icon is-small">
                                         <i className="fa fa-trash" />
@@ -64,25 +60,26 @@ class Products extends Component {
     }
 
     handleDelete(e) {
+        
         let {products} = this.state;
-        let filteredArray = {};
-        let acumulator = [];
-        // let Parray = Object.values(products)
-        // let currentUser = firebase.auth().currentUser.uid;
-        let newArray = Object.keys(products).map((item) => {
-            return { [item]: products[item] };
-        })
+        let arrayProducts = [products];
+        let selectedProduct = e
+        
+        
+        // let newArray = Object.keys(products).map((item) => {
+        //     return { [item]: products[item] };
+        // });
 
-        let results = newArray.map((item) => {
-            for(let counter in item) {
-                if(item[counter] !== e) {
-                    return item
-                }
-            }
-        }).filter(item => item !== undefined)
+        // let filteredItems = newArray.map((item) => {
+        //     for(let counter in item) {
+        //         if(item[counter] !== e) {
+        //             return item
+        //         }
+        //     }
+        // }).filter(item =>  item !== undefined);
         
-        
-        // firebase.database().ref('products/' + currentUser).set(
+        // console.log(filteredItems)
+        // firebase.database().ref('proucts/' + currentUser).set(
         //     products,
         //     err => console.log(err ? 'error while pushing to DB' : 'succesful push')
         // )

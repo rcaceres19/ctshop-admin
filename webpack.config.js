@@ -6,7 +6,7 @@ const Dotenv = require('dotenv-webpack');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: ["babel-polyfill", './src/index.js'],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'js/main.js'

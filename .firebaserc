@@ -1,12 +1,19 @@
 {
   "projects": {
-    "default": "proyectogra-54925"
+    "default": "ctshop-admin"
   },
   "targets": {
-    "proyectogra-54925": {
+    "ctshop-admin": {
       "hosting": {
         "admin": [
           "admin-catrachosshop"
+        ]
+      }
+    },
+    "proyectogra-54925": {
+      "hosting": {
+        "admin": [
+          "ctshop-admin"
         ]
       }
     }

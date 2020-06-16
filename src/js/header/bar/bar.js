@@ -35,13 +35,10 @@ class Bar extends Component{
                 firebase.database().ref('/companies/'+user.uid).once('value', snapshot => {
                     this.setState({subscribed: snapshot.val().subscribed})
                 })
-                console.log(user.uid)
             } else {
               // No user is signed in.
             }
         });
-        
-
     }
 
     toogleMenu() {
@@ -50,14 +47,13 @@ class Bar extends Component{
 
     render() {
         const {isVisible, subscribed} = this.state;
-        console.log(subscribed)
         return(
             <div>
                 <Router history={browserHistory} >                
                     <nav className="navbar" role="navigation" aria-label="main navigation">
                     
                     <div className="navbar-brand">
-                        <a className="navbar-item" href="/home">
+                        <a className="navbar-item" href="/">
                             <img src={logo} className="logo-png" />
                         </a>
 
@@ -71,10 +67,10 @@ class Bar extends Component{
                             { this.props.authenticated ?                    
                                 <div id="navbarBasicExample" className={`navbar-menu ${isVisible ? "is-active" : "hidden"}`}>
                                     <div className="navbar-start">
-                                        <Link className="navbar-item is-inline-block" to="/home">Inicio</Link>
+                                        <Link className="navbar-item is-inline-block" to="/">Inicio</Link>
                                         {
-                                            subscribed.status == false ? 
-                                            <Link className="navbar-item" to="/subscribe">Subscribete</Link>
+                                            this.state.subscribed.status == false ? 
+                                            <Link className="navbar-item is-inline-block" to="/subscribe">Subscribete</Link>
                                             :
                                             <div>
                                                 <Link className="navbar-item is-inline-block" to="/products">Productos</Link>
@@ -104,8 +100,8 @@ class Bar extends Component{
                     </nav>
 
                     <Switch>
+                        <Route exact path="/" subscribed={subscribed} component={Home}></Route>
                         <Route authenticated={this.props.authenticated} path="/login" component={Login} />    
-                        <Route authenticated={this.props.authenticated} path="/home" component={Home} />
                         <Route authenticated={this.props.authenticated} path="/subscribe" component={Subscribe} />
                         <ProtectedRoutes component={Confirmation} path="/confirmation" authenticated={this.props.authenticated} />
                         <Route path="/register" component={Register} />

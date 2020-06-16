@@ -1,5 +1,5 @@
 {
-  "hosting": [{
+  "hosting": {
     "target": "admin",
     "public": "dist",
     "ignore": [
@@ -13,5 +13,5 @@
         "destination": "/index.html"
       }
     ]
-  }]
+  }
 }
