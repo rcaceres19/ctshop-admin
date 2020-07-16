@@ -1,13 +1,5 @@
 import React, {Component} from 'react';
 import firebase from 'firebase';
-import { withRouter } from 'react-router-dom';
-import Register from '../register/register';
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-} from "react-router-dom";
 import '../../../css/components/login/login.scss';
 
 class Login extends Component {

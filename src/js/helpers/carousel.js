@@ -19,14 +19,13 @@ export default class SimpleSlider extends Component {
       autoplay: true,
       speed: 500,
       slidesToShow: 1,
-      slidesToScroll: 1,
+      slidesToScroll: 1
     };
-    const {images} = this.state;
     return (
       <div>
         <Slider {...settings}>
           {
-            images.map((item, index) => {
+            this.props.images.map((item, index) => {
               return(
                 <div>
                   <img key={index} src={item} />

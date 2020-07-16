@@ -15,6 +15,7 @@ class Products extends Component {
 
         this.buildProducts = this.buildProducts.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
+        this.handleEdit = this.handleEdit.bind(this);
     }
     
     componentDidMount() {
@@ -26,9 +27,41 @@ class Products extends Component {
         })
     }
 
+    
+
+    handleDelete(e) {
+        const userId = firebase.auth().currentUser.uid;
+        let {products} = this.state;
+        let product = e;
+        let filterProducts = {};
+
+        for(let i in products) {
+            if(products.hasOwnProperty(i)) {
+                if(products[i].id == product.id) {
+                    
+                    firebase.database().ref(`/products/${userId}/${i}`).remove().then(() => {
+                        console.log('Producto Removido')
+                    })
+                } else {
+                    filterProducts[i] = (products[i])
+                }
+            }
+        }
+
+        this.setState({products: filterProducts})
+
+    }
+
+    handleEdit(e) {
+        this.props.history.push({
+            pathname: '/addProduct',
+            state: {editProduct: e}
+        })
+    }
+
     buildProducts() {
         const {products} = this.state;
-            let dataArray = Object.values(products).map((item, index) => {
+            let dataArray = Object.values(this.state.products).map((item, index) => {
                 return (
                     <div className="item-holder">
                         <div className="item">
@@ -39,12 +72,17 @@ class Products extends Component {
                                 <div className="item-basic-info">
                                     <p><b>Nombre de producto:</b> {item.name}</p>
                                     <p><b>Precio: </b>{item.price} L.</p>
-                                    <p><b>Descripcion: </b>{item.description}</p>
+                                    <p><b>Descripcion: </b>{item.desc}</p>
                                     {/* <p><b>Cantidad disponible: </b>{item.stock}</p> */}
-                                    <p><b>Promocion: </b>{item.featured}</p>
+                                    <p><b>Descuento: </b>{item.descuento.porcentaje}</p>
                                 </div>
                             </div>
                             <div className="item-actions">
+                                <button className="item-button button is-info" onClick={() => this.handleEdit(item)}>
+                                    <span className="icon is-small">
+                                        <i className="fa fa-edit" />
+                                    </span>
+                                </button>
                                 <button className="item-button button is-danger" onClick={() => this.handleDelete(item)}>
                                     <span className="icon is-small">
                                         <i className="fa fa-trash" />
@@ -59,39 +97,13 @@ class Products extends Component {
 
     }
 
-    handleDelete(e) {
-        
-        let {products} = this.state;
-        let arrayProducts = [products];
-        let selectedProduct = e
-        
-        
-        // let newArray = Object.keys(products).map((item) => {
-        //     return { [item]: products[item] };
-        // });
-
-        // let filteredItems = newArray.map((item) => {
-        //     for(let counter in item) {
-        //         if(item[counter] !== e) {
-        //             return item
-        //         }
-        //     }
-        // }).filter(item =>  item !== undefined);
-        
-        // console.log(filteredItems)
-        // firebase.database().ref('proucts/' + currentUser).set(
-        //     products,
-        //     err => console.log(err ? 'error while pushing to DB' : 'succesful push')
-        // )
-
-
-    }
-
     render() {
         
         return(
             <div className="container">
                 <p className="products-title title is-1">Productos</p>
+                {!this.state.products == {} && <h1>Te invitamos a agregar nuevos productos</h1>} 
+                    
                 {
                    this.buildProducts()
                 }

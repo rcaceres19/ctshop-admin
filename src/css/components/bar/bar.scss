@@ -1,18 +1,21 @@
+.header{ 
+    min-height: 21rem;
+}
 .navbar {
-    background-color: #232f3e !important;
+    background-color: #f5f5f5 !important;
     i {
         margin-right: 7px;
     }
     .navbar-item {
-        color: white;
+        color: black;
         &:focus,
         &.is-active{
-            background-color:#232f3e;
-            color:white;
+            background-color:#d8d7d7;
+            color:black;
         }
     }
     .navbar-item:hover {
-        background-color: #18212b !important;
+        background-color: #d8d7d7 !important;
     }    
 }
 

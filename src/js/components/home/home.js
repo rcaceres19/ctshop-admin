@@ -7,7 +7,7 @@ import IMG1 from '../../../assets/images/inico-catrachosshop.png';
 import IMG2 from '../../../assets/images/inicio-catrachosshop2.png';
 import IMG3 from '../../../assets/images/inicio-catrachosshop3.png';
 import IMG4 from '../../../assets/images/inicio-catrachosshop4.png';
-import IMG5 from '../../../assets/images/inicio-catrachosshop5.jpeg';
+import IMG5 from '../../../assets/images/home-it-works.jpeg';
 
 class Home extends Component {
     constructor(props) {
@@ -32,10 +32,15 @@ class Home extends Component {
     
     render() {
         let images = [IMG1, IMG2, IMG3, IMG4 ];
-        console.log(this.state.subscribed)
+
         return(
             <div className="container">
                 <div className="colums is-centered">
+                <div className="welcome=msg">
+                    <br />
+                    <h1 className="title is-h2">Bienvenido a Catrachos Shop</h1>
+                    <br/>
+                </div>
                 { 
                     this.state.subscribed ?
                     ""
@@ -49,37 +54,48 @@ class Home extends Component {
                         </div>
                     </div>
                 }
-                    <nav className="level" >
-                        <div className="level-item">
-                            <SimpleSlider images={images} />    
-                        </div>
-                    </nav>
                     <div className="box info-box" >
+                        <nav className="level" >
+                            <div className="level-item">
+                                <SimpleSlider images={images} />    
+                            </div>
+                            
+                        </nav>
+                        <br/>
+                        <hr/>
                         <div className="column">
                             <div className="columns">
-                                <div className="column is-half has-text-centered">
-                                <img src={IMG5}/>
-                                </div>
-                                <div className="column is-half has-text-centered "> 
-                                    <section className="hero is-primary">
+                                <div className="column is-half has-text-left">
+                                    <section className="hero">
                                         <div className="hero-body">
-                                            <div className="container">
                                             <h1 className="title">
-                                                Catrachos Shop
+                                                ¿Como funciona catrachos shop en las empresas?
                                             </h1>
-                                            <h2 className="subtitle">
-                                                Creciendo con la pequeña empresa
-                                            </h2>
                                             <hr />
-                                            <p>Es una plataforma de tiendas online para las MIPYMES (micro, pequeña y mediana empresa) donde nuestros afiliados podrán ofrecer sus productos o servicios a través de la red de la misma manera que comercializan en su tienda física.
-                                            Esta herramienta brinda la posibilidad de expandir sus negocios, ampliar su mercado y de aprovechar las ventajas de un comercio virtual.
-                                            Puedes crear tu tienda online, configurarla, describir los productos y añadir imágenes en cuestión de minutos. 
-                                            Tus clientes pueden pagar con tarjeta de crédito/débito o PayPal. 
-                                            Solo debes suscribirte y elegir uno de los diferentes planes para empezar a comercializar. 
-                                            Vender en línea puede ser muy fácil. ¡Suscríbete! Y crea tu tienda online hoy mismo. Comienza a vender por Internet.</p>
-                                            </div>
+                                            <p className="has-text-left">Catrachos Shop es una plataforma de tiendas online que te permite crear tu propio comercio
+                                            en línea a través de una suscripción mensual. Si necesitas una tienda online para tu micro,
+                                            pequeña o mediana empresa esta es una excelente forma de crearla.
+                                            Con una inversión mínima obtendrás todas las funcionalidades necesarias para abrir tu negocio al mundo de Internet.
+                                            Esta herramienta te brinda la posibilidad de expandir tu mercado para adquirir nuevos clientes
+                                            y de generarte mayor competitividad. </p>
+
+                                            <hr/>
+                                            <p>Estos son algunos datos que debes conocer sobre como funciona Catrachos Shop:</p>
+                                            <ol>
+                                                <li><i className="fa fa-check" aria-hidden="true"></i>Regístrate</li>
+                                                <li><i className="fa fa-check" aria-hidden="true"></i>Realiza la suscripción</li>
+                                                <li><i className="fa fa-check" aria-hidden="true"></i>Al efectuar la verificación de tus datos se habilitará tu usuario</li>
+                                                <li><i className="fa fa-check" aria-hidden="true"></i>Configura tu tienda online, describe tus productos y agregar imágenes en cuestión de minutos. </li>
+                                                <li><i className="fa fa-check" aria-hidden="true"></i>Tus clientes tendrán a la disposición el catálogo de tus productos. Además, 
+                                                que ellos podrán realizar el pago con tarjeta de crédito/débito o PayPal de forma segura.</li>
+                                            </ol>
+                                            <hr/>
+                                            <p><b>¡Expande tu negocio y adquieres nuevos clientes!</b></p>
                                         </div>
                                     </section>
+                                </div>
+                                <div className="column is-half has-text-centered ">
+                                    <img src={IMG5}/>   
                                 </div>
                             </div>  
                         </div>

@@ -14,6 +14,7 @@ class Subscribe extends Component {
                 company: "",
                 rtn: "",
                 email: "",
+                representante: "",
                 password: "",
                 faddress: "",
                 saddress: "",
@@ -44,18 +45,15 @@ class Subscribe extends Component {
 
     uploadImage(e) {
         const file = e.target.files[0];
-        const storageRef = firebase.storage().ref();
-        const url = `images/companies/${file.name}`;
-        const uploadTask = storageRef.child(url);
-        
-        uploadTask.put(file)
-        storageRef.child(url).getDownloadURL().then((url) => {
+        const storageRef = firebase.storage().ref(`images/companies/${file.name}`);
+        storageRef.put(file).then((snapshot) => {
             let {images} = this.state;
-            
-            images = url;
 
-            this.setState({images})
-            console.log(images)
+            storageRef.getDownloadURL().then((result) => {
+                images = result;
+                
+                this.setState({ images:images })  
+            })
         })
     }
     
@@ -72,7 +70,7 @@ class Subscribe extends Component {
                 confirmButtonText: '<a class="fa fa-thumbs-up"></a> Genial!',
             })
             this.addToDatabase()
-            this.props.history.push('/home');
+            this.props.history.push('/');
         }).catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
@@ -92,12 +90,13 @@ class Subscribe extends Component {
 
     addToDatabase() {
         const users = firebase.auth().currentUser.uid;
-        const {company, rtn, email, faddress, saddress, tel, type, images, subscribed, description} = this.state
+        const {company, rtn, email, faddress, saddress, tel, type, images, subscribed, description, representante} = this.state
         
         firebase.database().ref('companies/' + users).set({
             company: company,
             rtn: rtn,
             email: email,
+            representante: representante,
             faddress: faddress,
             saddress: saddress,
             tel: tel,
@@ -136,9 +135,18 @@ class Subscribe extends Component {
                                 </div>
                             </div>
                             <div className="field">
+                                <label className="label">Representante legal<small>*</small></label>
+                                <div className="control has-icons-left">
+                                    <input type="text" name="representante" className="input" onChange={this.handleChange} required />
+                                    <span className="icon is-small is-left">
+                                        <i className="fa fa-user"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <div className="field">
                                 <label className="label">RTN<small>*</small></label>
                                 <div className="control has-icons-left">
-                                    <input type="number" maxLength="14" name="rtn" className="input" onChange={this.handleChange} required />
+                                    <input type="text" maxLength="14" name="rtn" className="input" onChange={this.handleChange} required />
                                     <span className="icon is-small is-left">
                                         <i className="fa fa-id-card "></i>
                                     </span>
@@ -155,7 +163,7 @@ class Subscribe extends Component {
                                 </div>
                             </div>
                             <div className="field">
-                                <label className="label">Password<small>*</small></label>
+                                <label className="label">Contraseña<small>*</small></label>
                                 <div className="control has-icons-left">
                                     <input type="password" name="password" className="input" onChange={this.handleChange} required />
                                     <span className="icon is-small is-left">
@@ -169,7 +177,10 @@ class Subscribe extends Component {
                             <div className="field">
                                 <label className="label">Telefono<small>*</small></label>
                                 <div className="control has-icons-left">
-                                    <input type="number" maxLength="8" name="tel" className="input" onChange={this.handleChange} required />
+                                    <input type="text" maxLength="8" name="tel"
+                                    pattern="/^-?\d+\.?\d*$/" 
+                                    onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"
+                                    className="input" onChange={this.handleChange} required />
                                     <span className="icon is-small is-left">
                                         <i className="fa fa-phone "></i>
                                     </span>

@@ -6,3 +6,23 @@
 $fa-font-path: "~font-awesome/fonts";
 @import '~font-awesome/scss/font-awesome.scss';
 @import 'bulma/bulma.sass';
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.slick-slider {
+  text-align: center;
+  margin: auto;
+  img {
+      margin: auto;
+      height: 25rem;
+  }
+}

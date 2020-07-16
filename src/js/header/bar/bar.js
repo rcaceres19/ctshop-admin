@@ -7,6 +7,7 @@ import {
     Link
 } from "react-router-dom";
 import { browserHistory } from 'react-router'
+//rutas
 import Home from '../../components/home/home';
 import Login from '../../components/login/login';
 import Register from '../../components/register/register';
@@ -14,7 +15,12 @@ import Logout from '../../components/logout/logout';
 import Subscribe from '../../components/subscribe/subscribe';
 import addProduct from '../../components/addProduct/addProduct';
 import Confirmation from '../../components/confirmation/confirmation';
+import Venta from '../../components/venta/venta'
+import updateSell from '../../components/updateSell/updateSell';
+//proteccion de rutas
 import ProtectedRoutes from '../../helpers/protectedRoutes';
+
+//MISC
 import '../../../css/components/bar/bar.scss';
 import logo from '../../../assets/images/logo.png';
 import Products from '../../components/products/products';
@@ -48,7 +54,7 @@ class Bar extends Component{
     render() {
         const {isVisible, subscribed} = this.state;
         return(
-            <div>
+            <div className="header">
                 <Router history={browserHistory} >                
                     <nav className="navbar" role="navigation" aria-label="main navigation">
                     
@@ -67,31 +73,48 @@ class Bar extends Component{
                             { this.props.authenticated ?                    
                                 <div id="navbarBasicExample" className={`navbar-menu ${isVisible ? "is-active" : "hidden"}`}>
                                     <div className="navbar-start">
-                                        <Link className="navbar-item is-inline-block" to="/">Inicio</Link>
-                                        {
-                                            this.state.subscribed.status == false ? 
-                                            <Link className="navbar-item is-inline-block" to="/subscribe">Subscribete</Link>
-                                            :
-                                            <div>
-                                                <Link className="navbar-item is-inline-block" to="/products">Productos</Link>
-                                                <Link className="navbar-item is-inline-block" to="/addProduct">Agregar Productos</Link>
+                                        <Link className="navbar-item" to="/">Inicio</Link>
+                                        {!this.state.subscribed.status && <Link className="navbar-item" to="/subscribe">Subscribete</Link>}                                            
+                                        {this.state.subscribed.status && <Link className="navbar-item" to="/products">Productos</Link>}
+                                        {this.state.subscribed.status && <Link className="navbar-item" to="/addProduct">Agregar Productos</Link>}    
+                                        {this.state.subscribed.status && <Link className="navbar-item" to="/ventaManual">Venta manual</Link>}    
+                                        <a className="navbar-item" href="https://catrachosshop.com/">Empieza a comprar</a>
+                                    </div>
+                                    <div className="navbar-end">
+                                        <div className="navbar-item has-dropdown is-hoverable navbar-item">
+                                            <a className="navbar-link">
+                                                <i className="fa fa-user-circle-o" aria-hidden="true" />
+                                                Cuenta
+                                            </a>
+
+                                            <div className="navbar-dropdown">
+                                                {/* <Link className="navbar-item" to="/reporte">
+                                                    Reporte de ventas
+                                                </Link> */}
+                                                <Link className="navbar-item" to="/pedidos">
+                                                    Actualizar pedido
+                                                </Link>
+                                                {/* <Link className="navbar-item" to="/account">
+                                                    Mis datos
+                                                </Link> */}
                                             </div>
-                                        }
-                                    </div>
-                                    <div className="navbar-end">                                       
-                                        <Logout />
-                                    </div>
+                                        </div>
+                                    </div>                                   
+                                    <Logout />
                                 </div>
                             :
                                 <div id="navbarBasicExample" className={`navbar-menu ${isVisible ? "is-active" : "hidden"}`}>
+                                    <div className="navbar-start">
+                                        <a className="navbar-item" href="https://catrachosshop.com/">Empieza a comprar</a>
+                                    </div>
                                     <div className="navbar-end">
                                         <Link className="navbar-item" to="/login">
-                                            <i className="fa fa-sign-in has-text-white"></i>
-                                            <p className="has-text-white">Iniciar Sesion</p>
+                                            <i className="fa fa-sign-in "></i>
+                                            <p>Iniciar Sesion</p>
                                         </Link>
                                         <Link className="navbar-item" to="/register">
-                                            <i className="fa fa-wpforms has-text-white"></i>  
-                                            <p className="has-text-white">Registrate</p>
+                                            <i className="fa fa-wpforms "></i>  
+                                            <p>Registrate</p>
                                         </Link>
                                     </div>
                                 </div>
@@ -103,8 +126,10 @@ class Bar extends Component{
                         <Route exact path="/" subscribed={subscribed} component={Home}></Route>
                         <Route authenticated={this.props.authenticated} path="/login" component={Login} />    
                         <Route authenticated={this.props.authenticated} path="/subscribe" component={Subscribe} />
-                        <ProtectedRoutes component={Confirmation} path="/confirmation" authenticated={this.props.authenticated} />
+                        <Route authenticated={this.props.authenticated} path="/ventaManual" component={Venta} />
+                        <Route authenticated={this.props.authenticated} path="/pedidos" component={updateSell} />
                         <Route path="/register" component={Register} />
+                        <ProtectedRoutes component={Confirmation} path="/confirmation" authenticated={this.props.authenticated} />  
                         <ProtectedRoutes component={addProduct} path="/addProduct" authenticated={this.props.authenticated} />
                         <ProtectedRoutes component={Products} path="/products" authenticated={this.props.authenticated} />
                     </Switch>

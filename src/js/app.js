@@ -5,6 +5,9 @@ import Bar from './header/bar/bar';
 import '../css/mystyles.scss';
 import Footer from './footer/footer';
 
+
+
+
 class App extends Component {
     constructor(props){
         super(props);
