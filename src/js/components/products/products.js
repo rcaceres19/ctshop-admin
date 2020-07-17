@@ -70,9 +70,9 @@ class Products extends Component {
                             </div>
                             <div className="item-info holder">
                                 <div className="item-basic-info">
-                                    <p><b>Nombre de producto:</b> {item.name}</p>
-                                    <p><b>Precio: </b>{item.price} L.</p>
-                                    <p><b>Descripcion: </b>{item.desc}</p>
+                                    <p><b>Nombre de Producto:</b> {item.name}</p>
+                                    <p><b>Precio: </b>L{item.price} </p>
+                                    <p><b>Descripci&oacute;n: </b>{item.desc}</p>
                                     {/* <p><b>Cantidad disponible: </b>{item.stock}</p> */}
                                     <p><b>Descuento: </b>{item.descuento.porcentaje}</p>
                                 </div>

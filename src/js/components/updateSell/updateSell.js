@@ -83,23 +83,23 @@ class updateSell extends Component {
                     <div className="columns">
                         <div className="column">
                             <div className="column-header">
-                                <p className="title is-5">Informacion del cliente</p>
+                                <p className="title is-5">Informaci&oacute;n del cliente</p>
                                 <br/>
                             </div>
                             <div className="client-info">
-                                <label for="clientName">Nombre del cliente</label>
+                                <label for="clientName">Nombre del Cliente</label>
                                 <input name="clientName" className="input is-rounded" type="text" value={items[i].clientname} disabled />
-                                <label for="phoneNumber">Numero de telefono</label>
+                                <label for="phoneNumber">Numero de Tel&eacute;fono</label>
                                 <input name="phoneNumber" type="number" className="input is-rounded" value={items[i].phone} disabled />
-                                <label for="email">Correo electronico</label>
+                                <label for="email">Correo Electr&oacute;nico</label>
                                 <input name="email" type="text" className="input is-rounded" value={items[i].email} disabled />
-                                <label for="dirEnvio">Direccion de envio</label>
+                                <label for="dirEnvio">Direcci&oacute;n de Env&iacute;o</label>
                                 <textarea name="dirEnvio" type="text" className="textarea" value={items[i].address} disabled />
                             </div>  
                         </div>
                         <div className="column">
                             <div className="column-header">
-                                <p className="title is-5">Descripcion de productos</p>
+                                <p className="title is-5">Descripci&oacute;n de Productos</p>
                                 <br/>
                             </div>
                         {
@@ -122,14 +122,14 @@ class updateSell extends Component {
                         </div>
                         <div className="column">
                             <div className="column-header">
-                                <p className="title is-5">Total de orden</p>
+                                <p className="title is-5">Total de Orden</p>
                                 <br/>
                             </div>
-                            <label for="OrderCant">Cantidad de productos</label>
+                            <label for="OrderCant">Cantidad de Productos</label>
                             <input name="OrderCant" className="input is-rounded" type="text" value={items[i].totalItems} disabled />
-                            <label for="orderShipping">Envio</label>
+                            <label for="orderShipping">Env&iacute;o</label>
                             <input name="orderShipping" className="input is-rounded" type="text" value={items[i].shipping} disabled />        
-                            <label for="orderTotal">Total del pedido</label>
+                            <label for="orderTotal">Total del Pedido</label>
                             <input name="orderTotal" className="input is-rounded" type="text" value={items[i].totalPrice} disabled />
                         </div>
                     </div>
@@ -210,7 +210,7 @@ class updateSell extends Component {
         
         return(
             <div className="actualizar-pedido-vw container"> 
-                <p className="products-title title is-1">Actualizar pedido</p>
+                <p className="products-title title is-1">Actualizar Pedido</p>
                     <div className="columns">
                         <div className="column is-three-quarters">
                     {

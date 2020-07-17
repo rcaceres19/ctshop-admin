@@ -118,7 +118,7 @@ class Subscribe extends Component {
                 <div className="columns is-centered">
                     <div className="column is-half ">
                     <hr/>
-                        <p className="subtitle is-6 has-text-centered">Ingresa la informacion de tu empresa</p>
+                        <p className="subtitle is-6 has-text-centered">Ingresa la informaci&oacute;n de tu empresa</p>
                     <hr/>
                         <div className="box">
                             <p className="is-size-1  has-text-centered">
@@ -126,7 +126,7 @@ class Subscribe extends Component {
                             </p>
                             <p className="title is-3 has-text-centered">Reg&iacute;strate</p>
                             <div className="field">
-                                <label className="label">Empresa<small>*</small></label>
+                                <label className="label"><small>*</small>Empresa:</label>
                                 <div className="control has-icons-left">
                                     <input type="text" name="company" className="input" onChange={this.handleChange} required />
                                     <span className="icon is-small is-left">
@@ -135,7 +135,7 @@ class Subscribe extends Component {
                                 </div>
                             </div>
                             <div className="field">
-                                <label className="label">Representante legal<small>*</small></label>
+                                <label className="label"><small>*</small>Representante Legal:</label>
                                 <div className="control has-icons-left">
                                     <input type="text" name="representante" className="input" onChange={this.handleChange} required />
                                     <span className="icon is-small is-left">
@@ -144,7 +144,7 @@ class Subscribe extends Component {
                                 </div>
                             </div>
                             <div className="field">
-                                <label className="label">RTN<small>*</small></label>
+                                <label className="label"><small></small>RTN:</label>
                                 <div className="control has-icons-left">
                                     <input type="text" maxLength="14" name="rtn" className="input" onChange={this.handleChange} required />
                                     <span className="icon is-small is-left">
@@ -154,7 +154,7 @@ class Subscribe extends Component {
                                 
                             </div>
                             <div className="field">
-                                <label className="label">Email<small>*</small></label>
+                                <label className="label"><small>*</small>Correo Electr&oacute;nico:</label>
                                 <div className="control has-icons-left">
                                     <input type="text" name="email" className="input" onChange={this.handleChange}  required />
                                     <span className="icon is-small is-left">
@@ -163,19 +163,19 @@ class Subscribe extends Component {
                                 </div>
                             </div>
                             <div className="field">
-                                <label className="label">Contraseña<small>*</small></label>
+                                <label className="label"><small>*</small>Contraseña:</label>
                                 <div className="control has-icons-left">
                                     <input type="password" name="password" className="input" onChange={this.handleChange} required />
                                     <span className="icon is-small is-left">
                                         <i className="fa fa-key"></i>
                                     </span>
-                                    <small>NOTA*: Ingrese al menos 6 caracteres</small>
+                                    <small>*Nota: Ingrese al menos 6 caracteres.</small>
                                 </div>
                             </div>
                         
                         
                             <div className="field">
-                                <label className="label">Telefono<small>*</small></label>
+                                <label className="label"><small>*</small>Tel&eacute;fono</label>
                                 <div className="control has-icons-left">
                                     <input type="text" maxLength="8" name="tel"
                                     pattern="/^-?\d+\.?\d*$/" 
@@ -187,7 +187,7 @@ class Subscribe extends Component {
                                 </div>
                             </div>
                             <div className="field">
-                                <label className="label">Direccion #1</label>
+                                <label className="label">Direcci&oacute;n #1</label>
                                 <div className="control has-icons-left">
                                     <input type="text" name="faddress" className="input" onChange={this.handleChange} />
                                     <span className="icon is-small is-left">
@@ -196,7 +196,7 @@ class Subscribe extends Component {
                                 </div>
                             </div>
                             <div className="field">
-                                <label className="label">Direccion #2</label>
+                                <label className="label">Direcci&oacute;n #2</label>
                                 <div className="control has-icons-left">
                                     <input type="text" name="saddress" className="input" onChange={this.handleChange} />
                                     <span className="icon is-small is-left">
@@ -205,9 +205,9 @@ class Subscribe extends Component {
                                 </div>
                             </div>
                             <div class="field">
-                                <label className="label">Descripcion de la empresa*</label>
+                                <label className="label">*Descripcion de la Empresa</label>
                                 <div class="control has-icons-lef">
-                                    <textarea class="textarea is-primary" name="description" onChange={this.handleChange} placeholder="Primary textarea"></textarea>
+                                    <textarea class="textarea is-primary" name="description" onChange={this.handleChange} placeholder="Brinde una descripci&oacute;n de su empresa..."></textarea>
                                 </div>
                             </div>
                             <div className="level">
@@ -221,7 +221,7 @@ class Subscribe extends Component {
                                                     <i className="fa fa-upload"></i>
                                                     </span>
                                                     <span className="file-label">
-                                                        Elija archivos *
+                                                        *Elija Archivos 
                                                     </span>
                                                 </span>
                                             </label>
@@ -229,7 +229,7 @@ class Subscribe extends Component {
                                     </div>
                                 </div>
                             </div>
-                            <button className="button is-success is-fullwidth" onClick={this.handleSubmit} value="Submit">Submit</button> 
+                            <button className="button is-success is-fullwidth" onClick={this.handleSubmit} value="Submit">Enviar</button> 
                         </div>
                     </div>
                 </div>

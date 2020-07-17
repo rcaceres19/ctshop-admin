@@ -408,20 +408,20 @@ class AddProduct extends Component{
                         <div className="column">
                             <div>
                                 <div className="field">
-                                    <label className="label">Nombre del producto</label>
+                                    <label className="label">Nombre del Producto</label>
                                     <div className="control">
-                                        <input type="text" className="input" name="name" placeholder="Nombre" value={this.state.product.name} required onChange={ this.handleChange  } />
+                                        <input type="text" className="input" name="name" placeholder="Nombre del Producto" value={this.state.product.name} required onChange={ this.handleChange  } />
                                     </div>            
                                 </div>
                             </div>
                             <div>
                                 <div className="field">
-                                    <label className="label">Categoria</label>
+                                    <label className="label">Categor&iacute;a</label>
                                     <div className="control">
                                         <div className="select">
                                             <select name="cat" required onChange={this.handleChange}>
                                                 {this.state.product.cat !== "" && <option hidden={true} selected={true} value={this.state.product.cat}>{this.state.product.cat}</option>}
-                                                <option hidden={true}>Categoria</option>
+                                                <option hidden={true}>Categor&iacute;a</option>
                                                 <option value="cuidadoSp">Cuidado Personal</option>
                                                 <option value="deporte">Deporte</option>
                                                 <option value="electrodomesticos">Electrodomésticos</option>
@@ -438,9 +438,9 @@ class AddProduct extends Component{
                                 </div>
                                 <div>
                                     <div className="field">
-                                        <label className="label">Descripcion del producto</label>
+                                        <label className="label">Descripci&oacute;n del Producto</label>
                                         <div className="control">
-                                            <textarea required className="textarea" name="desc" value={this.state.product.desc} placeholder="escriba una descripcion" onChange={ this.handleChange  } />
+                                            <textarea required className="textarea" name="desc" value={this.state.product.desc} placeholder="Escriba una descripci&oacute;n..." onChange={ this.handleChange  } />
                                         </div>            
                                     </div>   
                                 </div>
@@ -459,7 +459,7 @@ class AddProduct extends Component{
                             <div className="level">
                                 <div>
                                     <div className="field">
-                                        <label className="label">Cantidad de producto disponible</label>
+                                        <label className="label">Cantidad de Producto Disponible</label>
                                         <div className="control">
                                             <input type="number" className="input" name="stock" value={this.state.product.stock} required placeholder="Producto Disponible" onChange={ this.handleChange  } />
                                         </div>            
@@ -613,7 +613,7 @@ class AddProduct extends Component{
                                 }
                             </div> */}
                             <hr />
-                            <label><b>Resumen de tallas</b></label>
+                            <label><b>Resumen de Tallas</b></label>
                             <div>
                                 {
                                     this.state.tallaArray.map((item) => (
@@ -626,7 +626,7 @@ class AddProduct extends Component{
                                     ))
                                 }
                             </div>
-                            <label><b>Resumen de fotos</b></label>
+                            <label><b>Resumen de Fotos</b></label>
                             <div>
                                 {
                                     this.state.product.images.map((item) => (
@@ -652,7 +652,7 @@ class AddProduct extends Component{
                                             <i className="fa fa-upload"></i>
                                             </span>
                                             <span className="file-label">
-                                                Añadir imagen
+                                                Añadir Imagen
                                             </span>
                                         </span>
                                     </label>

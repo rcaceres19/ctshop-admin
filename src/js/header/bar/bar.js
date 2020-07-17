@@ -74,11 +74,11 @@ class Bar extends Component{
                                 <div id="navbarBasicExample" className={`navbar-menu ${isVisible ? "is-active" : "hidden"}`}>
                                     <div className="navbar-start">
                                         <Link className="navbar-item" to="/">Inicio</Link>
-                                        {!this.state.subscribed.status && <Link className="navbar-item" to="/subscribe">Subscribete</Link>}                                            
+                                        {!this.state.subscribed.status && <Link className="navbar-item" to="/subscribe">Subscr&iacute;bete</Link>}                                            
                                         {this.state.subscribed.status && <Link className="navbar-item" to="/products">Productos</Link>}
                                         {this.state.subscribed.status && <Link className="navbar-item" to="/addProduct">Agregar Productos</Link>}    
-                                        {this.state.subscribed.status && <Link className="navbar-item" to="/ventaManual">Venta manual</Link>}    
-                                        <a className="navbar-item" href="https://catrachosshop.com/">Empieza a comprar</a>
+                                        {this.state.subscribed.status && <Link className="navbar-item" to="/ventaManual">Venta Manual</Link>}    
+                                        <a className="navbar-item" href="https://catrachosshop.com/">Empieza a Comprar</a>
                                     </div>
                                     <div className="navbar-end">
                                         <div className="navbar-item has-dropdown is-hoverable navbar-item">
@@ -92,7 +92,7 @@ class Bar extends Component{
                                                     Reporte de ventas
                                                 </Link> */}
                                                 <Link className="navbar-item" to="/pedidos">
-                                                    Actualizar pedido
+                                                    Actualizar Pedido
                                                 </Link>
                                                 {/* <Link className="navbar-item" to="/account">
                                                     Mis datos
@@ -105,16 +105,16 @@ class Bar extends Component{
                             :
                                 <div id="navbarBasicExample" className={`navbar-menu ${isVisible ? "is-active" : "hidden"}`}>
                                     <div className="navbar-start">
-                                        <a className="navbar-item" href="https://catrachosshop.com/">Empieza a comprar</a>
+                                        <a className="navbar-item" href="https://catrachosshop.com/">Empieza a Comprar</a>
                                     </div>
                                     <div className="navbar-end">
                                         <Link className="navbar-item" to="/login">
                                             <i className="fa fa-sign-in "></i>
-                                            <p>Iniciar Sesion</p>
+                                            <p>Iniciar Sesi&oacute;n</p>
                                         </Link>
                                         <Link className="navbar-item" to="/register">
                                             <i className="fa fa-wpforms "></i>  
-                                            <p>Registrate</p>
+                                            <p>Reg&iacute;strate</p>
                                         </Link>
                                     </div>
                                 </div>
