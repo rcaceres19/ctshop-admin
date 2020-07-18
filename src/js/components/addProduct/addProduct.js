@@ -370,7 +370,7 @@ class AddProduct extends Component{
             if(products.hasOwnProperty(i)) {
                 if(products[i].id == product.id) {
                     products[i] = product;
-                    console.log({[i]: products[i].stock})
+                    console.log({[i]: products[i]})
                     // Firebase.database().ref(`/ventas/${userId}/cliente-tienda/${i}`).push(
                     //     compiler
                     // )
@@ -382,11 +382,16 @@ class AddProduct extends Component{
                         name: products[i].name, 
                         outStock: products[i].outStock, 
                         price: products[i].price, 
-                        promocion: products[i].promocion, 
                         stock: products[i].stock, 
                         talla: products[i].talla, 
                     }).then(() => {
-                        console.log('Producto Actualizado')
+                        Swal.fire({
+                            position: 'top-end',
+                            title: 'Felicidades',
+                            text: 'Producto actualizado',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
                     })
                 } 
             }

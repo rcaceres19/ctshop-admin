@@ -38,24 +38,7 @@ class updateSell extends Component {
         
     }
 
-    handleOrganize() {
-        const { pedidosArray } = this.state
-        let { pedidos } = this.state
-        
-        for(let i in pedidosArray) {
-            if(pedidosArray.hasOwnProperty(i)) {
-                if(pedidosArray[i].status == 'pendiente') {
-                    pedidos.pendientes.push({[i]: pedidosArray[i]})
-                }
-                if(pedidosArray[i].status == 'completado') {
-                    pedidos.completados.push({[i]: pedidosArray[i]})
-                }
-            }
-        }
-
-
-        this.setState({ pedidos })
-    }   
+    
 
     constructCards(i, items) {
         return (
@@ -71,12 +54,23 @@ class updateSell extends Component {
                             <p><b>Status: <label className="has-text-link">{items[i].status}</label></b></p>
                         </div>
                         <div className="level-item has-text-centered">
-                            <div className="select">
-                                <select name="change-state" onChange={(e) => this.handleUpdate(items[i], e)}>
-                                    <option value="pendiente">Pendiente</option>
-                                    <option value="completado">Completado</option>
-                                </select>
-                            </div>
+                            {
+                                items[i].status == 'completado' && 
+                                <div className="select">
+                                    <select name="change-state" disabled onChange={(e) => this.handleUpdate(items[i], e)}>
+                                        <option>{items[i].status}</option>
+                                    </select>
+                                </div>
+                            }
+                            {
+                                items[i].status == 'pendiente' && 
+                                <div className="select">
+                                    <select name="change-state" onChange={(e) => this.handleUpdate(items[i], e)}>
+                                        <option value="pendiente">Pendiente</option>
+                                        <option value="completado">Completado</option>
+                                    </select>
+                                </div>
+                            }
                         </div>
                     </div>                                            
                 <hr/>
@@ -134,11 +128,28 @@ class updateSell extends Component {
                         </div>
                     </div>
                     <hr/>
-                    <button className="button is-info" onClick={() => this.handleUpdate(items[i])}>Actualizar pedido</button>
                 </div>
             </div>
         )
     }
+
+    handleOrganize() {
+        const { pedidosArray } = this.state
+        let { pedidos } = this.state
+        
+        for(let i in pedidosArray) {
+            if(pedidosArray.hasOwnProperty(i)) {
+                if(pedidosArray[i].status == 'pendiente') {
+                    pedidos.pendientes.push({[i]: pedidosArray[i]})
+                }
+                if(pedidosArray[i].status == 'completado') {
+                    pedidos.completados.push({[i]: pedidosArray[i]})
+                }
+            }
+        }
+
+        this.setState({ pedidos })
+    }   
 
     handleInfo(e) {
         let { name } = e.target
@@ -157,7 +168,6 @@ class updateSell extends Component {
 
     handleOrdersPendientes() {
         let pendientes = []
-
         
             pendientes = this.state.pedidos.pendientes.map((items) => {
                 for(let i in items) {
@@ -187,23 +197,28 @@ class updateSell extends Component {
     handleUpdate(item, e) {
         let { value } = e.target;
         let {pedidos} = this.state;
+        let user = Firebase.auth().currentUser.uid;
 
-        let filtered = pedidos.pendientes.map(items => {
+       pedidos.pendientes = pedidos.pendientes.map(items => {
             for( let i in items ) {
                 if(items[i].orderId == item.orderId) {
                     items[i].status = value;
                     pedidos.completados.push(items)
+
+                    Firebase.database().ref(`/orders/${user}/${items[i].orderId}`).update({
+                        status: items[i].status
+                    })
+
                 } else {
                     return items
                 }
             }
-        }).filter(items => items !== undefined)
+        })
 
-        pedidos.pendientes = filtered;
+        pedidos.pendientes.filter(item => item !== undefined)
 
         this.setState({pedidos: pedidos})
 
-        console.log(filtered)
     }
 
     render() {
