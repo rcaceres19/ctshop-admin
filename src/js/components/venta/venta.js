@@ -92,11 +92,11 @@ class Venta extends Component {
                     <div className="columns">
                         <div className="column">
                             <div class="field">
-                                <label class="label">Producto vendido</label>
+                                <label class="label">Producto Vendido</label>
                                 <div class="control">
                                     <div class="select">
                                         <select>
-                                            <option hidden={true} >Selecciona un producto</option>
+                                            <option hidden={true} >Selecciona un Producto</option>
                                             {
                                                 Object.values(products).map(item => {
                                                     return(
@@ -111,7 +111,7 @@ class Venta extends Component {
                         </div>
                         <div className="column">
                             <div class="field">
-                                <label class="label">Cantidad vendida</label>
+                                <label class="label">Cantidad Vendida</label>
                                 <div class="control">
                                     <input class="input" type="number" placeholder="Cantidad vendida" onChange = {this.guardarVenta} />
                                 </div>

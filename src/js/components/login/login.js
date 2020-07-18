@@ -61,26 +61,26 @@ class Login extends Component {
                 <div className="columns is-centered ">    
                     <div  className="column is-half login-form">
                         <hr/>
-                        <p className="subtitle is-6 has-text-centered">Ingresa tus credenciales</p>
+                        <p className="subtitle is-6 has-text-centered">Ingresa tus Credenciales</p>
                         <hr/>
                         <div className="box">
                             <p className="is-size-1  has-text-centered">
                                 <i className="fa fa-user title"></i>
                             </p>
-                            <p className="title is-3 has-text-centered">Inicia Sesion</p>
+                            <p className="title is-3 has-text-centered">Inicia Sesi&oacute;n</p>
                             <div className="field">   
-                                <label className="label">Email</label>
+                                <label className="label">Correo Electr&oacute;nico:</label>
                                 <div className="control has-icons-left">
-                                    <input type="text" className="input" placeholder="Example@example.com" onChange={ this.emailHandler } />
+                                    <input type="text" className="input" placeholder="Correo Electr&oacute;nico" onChange={ this.emailHandler } />
                                     <span className="icon is-left">
                                         <i className="fa fa-envelope"></i>
                                     </span>
                                 </div>                       
                             </div>
                             <div className="field">   
-                                <label className="label">Password</label>
+                                <label className="label">Contrase&ntilde;a</label>
                                 <div className="control has-icons-left">
-                                    <input type="password" className="input" placeholder="Password" onChange={ this.passHandler } />
+                                    <input type="password" className="input" placeholder="Contrase&ntilde;a" onChange={ this.passHandler } />
                                     <span className="icon is-left">
                                         <i className="fa fa-lock "></i>
                                     </span>
@@ -89,7 +89,7 @@ class Login extends Component {
                             
                             <div className="control has-text-centered">
                                 <br />
-                                <button className="button is-success signin-btn" onClick={this.handleSubmit} value="Submit">Iniciar Sesion</button>
+                                <button className="button is-success signin-btn" onClick={this.handleSubmit} value="Submit">Iniciar Sesi&oacute;n</button>
                             </div>
                         </div>
                     </div> 

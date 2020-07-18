@@ -76,8 +76,8 @@ class Subscribe extends Component {
                         <h1 className="title">Suscribete</h1>
                         <hr />
                         <p className="has-text-centered">
-                            Suscribite a Catrachos Shop, somos una empresa responsable que nos importa nuestros clientes<br/>
-                            Los cuales los ayudamos a crecer, si tu creces nosotros crecemos
+                            Suscr&iacute;bite a Catrachos Shop, somos una empresa responsable que nos importa nuestros clientes<br/>
+                            Los cuales los ayudamos a crecer, si tu creces nosotros crecemos.
                         </p>
                     </div>
                     <hr />
@@ -94,7 +94,7 @@ class Subscribe extends Component {
                                                     </figure>
                                                 </div>
                                             </nav>
-                                            <h1 className="title">Suscripcion Mensual</h1>
+                                            <h1 className="title">Suscripci&oacute;n Mensual</h1>
                                         </div>
                                         <hr />
                                         <div className="suscription-info">
@@ -122,13 +122,13 @@ class Subscribe extends Component {
                                                 <h2 className="subtitle"><b>Precio</b></h2>
                                                 <hr/>
                                                 <div className="price has-text-left">
-                                                    <p className>L. 372.00</p>
-                                                    <p className="has-text-danger"><b>Tipo de suscripcion:</b> <label className="has-text-black">Mensual</label></p>
+                                                    <p className>$20</p>
+                                                    <p className="has-text-danger"><b>Tipo de suscripci&oacute;n:</b> <label className="has-text-black">Mensual</label></p>
                                                 </div>
                                             </div>
                                             <hr />
                                             <div className="suscribe-container">
-                                                <h2 className="subtitle"><b>Suscribete</b></h2>
+                                                <h2 className="subtitle"><b>Suscr&iacute;bete</b></h2>
                                                 <hr />
                                                 <div className="column is-two-thirds is-offset-2">
                                                     <div id="paypal-button-container-mensual" />
@@ -179,12 +179,12 @@ class Subscribe extends Component {
                                                 <hr/>
                                                 <div className="price has-text-left">
                                                     <p className>L. 3721.00</p>
-                                                    <p className="has-text-danger"><b>Tipo de suscripcion:</b> <label className="has-text-black">Anual</label></p>
+                                                    <p className="has-text-danger"><b>Tipo de suscripci&oacute;n:</b> <label className="has-text-black">Anual</label></p>
                                                 </div>
                                             </div>
                                             <hr />
                                             <div className="suscribe-container">
-                                                <h2 className="subtitle"><b>Suscribete</b></h2>
+                                                <h2 className="subtitle"><b>Suscr&iacute;bete</b></h2>
                                                 <hr />
                                                 <div className="column is-two-thirds is-offset-2">
                                                     <div id="paypal-button-container-anual" />

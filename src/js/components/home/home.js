@@ -38,7 +38,7 @@ class Home extends Component {
                 <div className="colums is-centered">
                 <div className="welcome=msg">
                     <br />
-                    <h1 className="title is-h2">Bienvenido a Catrachos Shop</h1>
+                    <h1 className="title is-h2">¡Bienvenido a Catrachos Shop!</h1>
                     <br/>
                 </div>
                 { 
@@ -47,10 +47,10 @@ class Home extends Component {
                     :
                     <div className="box subscribe-message">
                         <div>
-                            <h1 className="title is-h1">Suscribete</h1>
+                            <h1 className="title is-h1">Suscr&iacute;bete</h1>
                             <hr />
-                            <p>Suscribete a catrachos Shop para empezar a ganar dinero vendiendo tus productos,
-                            vistos por miles de hondureños cada dia</p>
+                            <p>Suscr&iacute;bete a Catrachos Shop para empezar a ganar dinero vendiendo tus productos a trav&eacute;s de la plataforma,
+                            crea tu tienda online hoy mismo. Comienza a vender por Internet.</p>
                         </div>
                     </div>
                 }
@@ -69,7 +69,7 @@ class Home extends Component {
                                     <section className="hero">
                                         <div className="hero-body">
                                             <h1 className="title">
-                                                ¿Como funciona catrachos shop en las empresas?
+                                                ¿C&oacute;mo funciona catrachos shop en las empresas?
                                             </h1>
                                             <hr />
                                             <p className="has-text-left">Catrachos Shop es una plataforma de tiendas online que te permite crear tu propio comercio
@@ -80,7 +80,7 @@ class Home extends Component {
                                             y de generarte mayor competitividad. </p>
 
                                             <hr/>
-                                            <p>Estos son algunos datos que debes conocer sobre como funciona Catrachos Shop:</p>
+                                            <p>Estos son algunos datos que debes conocer sobre c&oacute;mo funciona Catrachos Shop:</p>
                                             <ol>
                                                 <li><i className="fa fa-check" aria-hidden="true"></i>Regístrate</li>
                                                 <li><i className="fa fa-check" aria-hidden="true"></i>Realiza la suscripción</li>

@@ -83,7 +83,7 @@ class Confirmation extends Component {
                             </nav>
                             <section className="info-suscriptor">
                                 <h1 className="title has-text-centered">¡Felicidades! te has suscrito</h1>
-                                <h2 className="subtitle has-text-centered">Tu numero de orden es: <label className="has-text-primary">{confirmationData.subscriptionID}</label></h2>
+                                <h2 className="subtitle has-text-centered">Tu n&uacute;mero de orden es: <label className="has-text-primary">{confirmationData.subscriptionID}</label></h2>
                             </section>
                             <section>
                                 <div className="columns is-centered">

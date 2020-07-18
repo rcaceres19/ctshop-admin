@@ -15,22 +15,22 @@ import Phone from '../../assets/images/phone.svg';
                             <img src={Phone} width={footerIconWidth} alt="Nuestro contacto" />
                             <h5 className="title is-5 has-text-white">Cont&aacute;ctenos</h5>
                             <ul>
-                                <li><a className="has-text-white" href="tel:+504 3000-0000">+(504) 3000-0000 </a></li>
+                                <li><a className="has-text-white" href="tel:+504 3000-0000">+(504) 2555-0000 </a></li>
                                 <li><label htmlFor=""><b>Oficinas:</b></label></li>
                                 <li><a className="has-text-white" href="tel:+504 3000-0000">+(504) 3000-0000</a></li>
                             </ul>
                         </div>
                         <div className="column">
-                            <img src={GPS} width={footerIconWidth} alt="Nuestra direccion" />
+                            <img src={GPS} width={footerIconWidth} alt="Nuestra direcci&oacute;n" />
                             <h5 className="title is-5 has-text-white">Direcci&oacute;n</h5>
-                            <p>San Pedro Sula: Barrio San Fernando, <br />1ra calle entre 11-12 avenida N.E. Autopista hacia el Aeropuerto Internacional Ramon Villeda Morales.</p>
+                            <p>Nuevos Horizontes Business Center,<br/>calle principal a Rancho el Coco, San Pedro Sula, Cort&acute;s</p>
                         </div>
                         <div className="column">
                             <img src={Technology} width={footerIconWidth} alt="Nuestra Informacion" />
                             <h5 className="title is-5 has-text-white">Informaci&oacute;n</h5>
                             <ul>
                                 <li><a className="has-text-white" href="/">Nosotros</a></li>
-                                <li><a className="has-text-white" href="/">Terminos y Condiciones</a></li>
+                                <li><a className="has-text-white" href="/">T&eacute;rminos y Condiciones</a></li>
                                 <li><a className="has-text-white" href="/">Preguntas Frecuentes </a></li>
                             </ul>
                         </div>

@@ -9,7 +9,7 @@ const LogOut = () => {
  return (
     <div className="navbar-item">
 
-        <a href="/"><button onClick={logOutUser} className="button is-danger" children="Log Out" /></a>
+        <a href="/"><button onClick={logOutUser} className="button is-danger" children="Cerrar Sesi&oacute;n" /></a>
     </div>
  );
 };

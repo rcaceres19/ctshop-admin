@@ -11,11 +11,11 @@ const ProductHolder = (props) => {
                     </div>
                     <div className="item-info holder">
                         <div className="item-basic-info">
-                            <p><b>Nombre de producto:</b> {props.name}</p>
+                            <p><b>Nombre de Producto:</b> {props.name}</p>
                             <p><b>Precio: </b>{props.price} L.</p>
-                            <p><b>Descripcion: </b>{props.description}</p>
+                            <p><b>Descripci&oacute;n: </b>{props.description}</p>
                             {/* <p><b>Cantidad disponible: </b>{props.stock}</p> */}
-                            <p><b>Promocion: </b>{props.featured}</p>
+                            <p><b>Promoci&oacute;n: </b>{props.featured}</p>
                         </div>
                     </div>
                     <div className="item-actions">
